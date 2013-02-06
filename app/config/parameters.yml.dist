@@ -1,0 +1,14 @@
+parameters:
+  database_driver: pdo_mysql
+  database_host: 127.0.0.1
+  database_port: null
+  database_name: showtonight_db
+  database_user: root
+  database_password: null
+  mailer_transport: smtp
+  mailer_host: 127.0.0.1
+  mailer_user: null
+  mailer_password: null
+  locale: en
+  secret: 0f8eb519886404984b15f6c27ed5c9d1f8818d00
+  database_path: null
