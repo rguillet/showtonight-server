@@ -39,23 +39,9 @@ class Event
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="blob")
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="capacity", type="integer")
-     */
-    private $capacity;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="price", type="float")
-     */
-    private $price;
 
     /**
      * @var string

@@ -5,3 +5,10 @@ services:
 #    s2n_show.example:
 #        class: %s2n_show.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+  sonata.admin.course:
+    class: S2n\ShowBundle\Admin\EventAdmin
+    tags:
+      - { name: sonata.admin, manager_type: orm, group: "Events", label: "Event" }
+    arguments: [ null, S2n\ShowBundle\Entity\Event, SonataAdminBundle:CRUD ]
+    calls:
+      - [ setTranslationDomain, [ S2nAdminBundle ] ]

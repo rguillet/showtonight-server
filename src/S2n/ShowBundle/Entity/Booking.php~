@@ -96,4 +96,27 @@ class Booking
     {
         return $this->availability;
     }
+
+    /**
+     * Set user
+     *
+     * @param \S2n\ShowBundle\Entity\User $user
+     * @return Booking
+     */
+    public function setUser(\S2n\ShowBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \S2n\ShowBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

@@ -1,4 +1,5 @@
 {
+    "minimum-stability": "dev",
     "name": "symfony/framework-standard-edition",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
@@ -19,7 +20,9 @@
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
         "kriswallsmith/assetic": "1.1.*@dev",
-        "friendsofsymfony/user-bundle": "*"
+        "friendsofsymfony/user-bundle": "*",
+        "sonata-project/admin-bundle": "*",
+        "sonata-project/doctrine-orm-admin-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [
