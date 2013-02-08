@@ -8,34 +8,36 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class EventAdmin extends Admin
+class AvailabilityAdmin extends Admin
 {
   
     public function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('title')
-            ->add('location')
-            ->add('description')
-            ->add('image')
+            ->add('event')
+            ->add('event_date')
+            ->add('event_time')
+            ->add('price')
+            ->add('capacity')
         ;
     }
-  
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title')
-            ->add('location')
-            ->add('description')
-            ->add('image')
+            ->add('event', 'sonata_type_model', array(), array())
+            ->add('event_date')
+            ->add('event_time')
+            ->add('price')
+            ->add('capacity')
         ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('title')
-            ->add('location')
+            ->add('price')
+            ->add('capacity')
         ;
     }
 
@@ -43,8 +45,10 @@ class EventAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('title')
-            ->add('location')
+            ->add('event_date')
+            ->add('event_time')
+            ->add('price')
+            ->add('capacity')
         ;
     }
 }

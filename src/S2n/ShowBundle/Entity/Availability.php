@@ -61,6 +61,10 @@ class Availability
      */
     protected $bookings;
     
+    public function __toString() {
+      return $this->event.' - '.$this->event_date->format('Y-m-d').' '.$this->event_time->format('H:i');
+    }
+    
     public function __construct()
     {
         $this->bookings = new ArrayCollection();

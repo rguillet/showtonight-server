@@ -54,6 +54,10 @@ class Event
      * @ORM\OneToMany(targetEntity="Availability", mappedBy="event")
      */
     protected $availabilities;
+    
+    public function __toString() {
+      return $this->title;
+    }
 
     public function __construct()
     {
