@@ -144,52 +144,6 @@ class Event
     }
 
     /**
-     * Set capacity
-     *
-     * @param integer $capacity
-     * @return Event
-     */
-    public function setCapacity($capacity)
-    {
-        $this->capacity = $capacity;
-    
-        return $this;
-    }
-
-    /**
-     * Get capacity
-     *
-     * @return integer 
-     */
-    public function getCapacity()
-    {
-        return $this->capacity;
-    }
-
-    /**
-     * Set price
-     *
-     * @param float $price
-     * @return Event
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-    
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return float 
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
      * Set image
      *
      * @param string $image
@@ -243,5 +197,22 @@ class Event
     public function getAvailabilities()
     {
         return $this->availabilities;
+    }
+    
+    function toArray()
+    {
+        $result = array();
+        $methods = get_class_methods($this);
+        foreach($methods as $method) {
+            if ('get' == substr($method, 0, 3)) {
+                $result[strtolower(substr($method, 3))] = $this->$method();
+            }
+        }
+        return $result;
+    }
+    
+    public function asMobileObject()
+    {
+      return $this->toArray();
     }
 }
