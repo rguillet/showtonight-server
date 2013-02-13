@@ -199,20 +199,20 @@ class Event
         return $this->availabilities;
     }
     
-    function toArray()
+    function asMobileObject()
     {
         $result = array();
         $methods = get_class_methods($this);
         foreach($methods as $method) {
-            if ('get' == substr($method, 0, 3)) {
-                $result[strtolower(substr($method, 3))] = $this->$method();
+            if ('get' == substr($method, 0, 3) && substr($method, 3) != 'Availabilities') {
+                $result[strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/',"_$1", substr($method, 3)))] = $this->$method();
             }
         }
+        foreach ($this->availabilities as $a)
+          $result['availabilities'][$a->getEventDate()->format('Y-m-d')] = $a->asMobileObject();
+        $result['description'] = nl2br($this->getDescription());
         return $result;
     }
     
-    public function asMobileObject()
-    {
-      return $this->toArray();
-    }
+    
 }

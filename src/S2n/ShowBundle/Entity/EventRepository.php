@@ -12,4 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class EventRepository extends EntityRepository
 {
+  public function getEventsAvailableOnDay($date = null)
+  {
+    if (!$date)
+      $date = date('Y-m-d');
+    return $this->getEntityManager()->createQuery(
+            'SELECT e, a FROM S2nShowBundle:Event e INNER JOIN e.availabilities a ORDER BY e.id DESC'
+            )->setMaxResults(10)->execute();
+  }
+  
+  public function getEventsWithAvailabilities($limit = 10)
+  {
+    
+    return $this->getEntityManager()->createQuery(
+            'SELECT e, a FROM S2nShowBundle:Event e INNER JOIN e.availabilities a ORDER BY e.id DESC'
+            )->setMaxResults($limit)->execute();
+  }
 }

@@ -228,4 +228,19 @@ class Availability
     {
         return $this->bookings;
     }
+    
+    function asMobileObject()
+    {
+        $result = array();
+        $methods = get_class_methods($this);
+        foreach($methods as $method) {
+            if ('get' == substr($method, 0, 3)  && !in_array(substr($method, 3), array('Bookings', 'Event'))) {
+                $result[strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/',"_$1", substr($method, 3)))] = $this->$method();
+            }
+        }
+        $result['event_date'] = $this->getEventDate()->format('YYY-mm-dd');
+        $result['event_time'] = $this->getEventTime()->format('H:i');
+        return $result;
+    }
+    
 }
