@@ -15,7 +15,7 @@ Here is a global overview of the app:
   * vendor/: this is where I installed (or where composer installed) the external bundles I use in this project: 
     FOSuserBundle and SonataAdminBundle as well as all the bundles they depend on.
 
-Don't hesitate to take a look at the Commits section and click on a particular commit to see exactly what files changed
+Don't hesitate to take a look at the [Commits][1] section and click on a particular commit to see exactly what files changed
 during the commit, it might help you if you are having trouble on a specific section.
 
 Below are a few comments that might help you. Keep in mind that you can look at the files of the project to see exactly
@@ -62,3 +62,4 @@ http://forum.wampserver.com/read.php?2,80704,82499
 
 create the api bundle
 
+[1]: https://github.com/rguillet/showtonight-server/commits/master
